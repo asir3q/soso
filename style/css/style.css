@@ -1,0 +1,58 @@
+body,div,figure,h3,header,html,input,li,ol,p,td,tr,ul{margin:0;padding:0}
+a{color:inherit;text-decoration:none;word-wrap:break-word;word-break:break-all}
+a:active,a:hover,a:visited{background:0 0;-webkit-tap-highlight-color:transparent}
+li{list-style:none}
+img{border:0;vertical-align:middle}
+input{outline:0;color:inherit;font-size:inherit;font-family:inherit}
+input[type=button],input[type=reset],input[type=submit]{cursor:pointer}
+html{background:#fff;font-size:16px;font-family:PingFang SC,Lantinghei SC,Microsoft YaHei,HanHei SC,Helvetica Neue,Open Sans,Arial,Hiragino Sans GB,Microsoft YaHei UI,STHeiti,WenQuanYi Micro Hei,SimSun,sans-serif}
+body{height:100vh;width:100vw}
+.container{padding:0 15px}
+.main{margin-top:calc(100vh*.382 - 170px)}
+.site-header{height:30px;padding-top:10px;padding-bottom:10px;display:flex;align-items:center}
+.help,.theme-switch{display:flex;width:30px;height:30px;align-items:center;justify-content:center}
+.help{margin:auto 20px}
+.theme-switch{margin-left:auto}
+.help svg,.theme-switch svg{width:26px;height:auto}
+.Copyright,.delete,.logo,.search-type,.submit{text-align:center}
+.logo svg{height:45px}
+.search-type{position:absolute;left:6px;padding:9px;width:30px;height:30px;border:0;background:0 0}
+.form{margin:50px auto;height:100%;max-width:678px;border:1px solid #e6e6e6;border-radius:24px;position:relative}
+.form:hover{box-shadow:0 0 60px 20px #e6e6e6}
+.field{width:calc(100% - 143px);color:#000;text-overflow:ellipsis;margin:0 89px 0 54px;padding:0;height:48px;border:0;font-size:14px;line-height:48px;background:0 0}
+.submit{position:absolute;right:6px;padding:9px;width:48px;height:48px;border:0;background:0 0}
+.delete{position:absolute;right:54px;top:0;padding:12px 2px;width:24px;height:24px;border:0;background:0 0}
+.delete img{width:24px;height:24px}
+#Sugword{margin:0 15px;border-top:1px solid #e6e6e6;padding:6px 0 20px}
+#Sugword li{height:32px;line-height:32px;font-size:14px;padding:0 54px;margin:0 -15px;display:-webkit-box;overflow:hidden;-webkit-line-clamp:1;-webkit-box-orient:vertical;background-image:url(../img/sosuo.svg);background-size:20px;background-position:left 25px top 6px;background-repeat:no-repeat;color:rgba(0,0,0,.68)}
+#Sugword li:hover{background-color:#f8f8f8;color:#000}
+#engine{position:absolute;left:6px;top:55px;box-shadow:0 0 10px #e6e6e6;border-radius:5px;padding:5px;z-index:5}
+#engine ul{border-radius:5px}
+#engine ul li{padding:12px 15px;border-radius:5px}
+#engine ul li span{font-size:14px;line-height:1;margin-left:10px;color:rgba(0,0,0,.68)}
+#engine ul li:hover{background-color:#f8f8f8}
+.search-type img,.submit img{width:30px;height:30px}
+#engine ul li img{width:18px;height:18px}
+.helpword{position:fixed;right:0;left:0;width:100%;height:100%;background:#fff;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;transition:all .3s ease}
+.helpcon{max-width:680px;color:rgba(0,0,0,.68);margin:0 auto;font-size:14px;line-height:2;padding:15px}
+.helpcon h3{text-align:center;font-size:16px;margin-bottom:15px}
+figure{overflow-x:auto;margin-top:15px;width:100%}
+table{width:100%;border-collapse:collapse;border-spacing:0}
+td,tr{overflow:hidden;padding:6px 12px;border:1px solid #ede8e2;vertical-align:middle;white-space:nowrap}
+tr:nth-child(odd){background:#f2f2f2}
+.close{margin:15px auto 0;width:45px;height:45px}
+.close svg{height:45px;width:45px}
+.footer{color:#999;font-size:12px;position:absolute;bottom:0;padding:15px 0;width:100%;line-height:1.5}
+.m-mask{position:fixed;top:0;right:0;bottom:0;left:0;overflow:hidden;z-index:2}
+.dark .helpword,html.dark{background:#2a2a2b}
+.dark .form:hover{box-shadow:0 0 60px 20px #17181a}
+.dark .field{color:#fff}
+.dark .helpcon{color:#999}
+.dark #Sugword li,.dark #engine ul li span{color:#fff;opacity:.7}
+.dark #engine ul li:hover{background-color:#212121}
+.dark #Sugword li:hover{background-color:#212121;opacity:1}
+.dark #engine{box-shadow:0 0 10px #17181a}
+.dark .close svg path,.dark .help svg path,.dark .logo svg path{opacity:.7;fill:#fff}
+.dark .theme-switch svg path{fill:#ffc008}
+.dark td,.dark tr{border:1px solid rgba(135,150,165,.075)}
+.dark tr:nth-child(odd){background:#333}
