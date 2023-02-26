@@ -13,7 +13,7 @@ github：https://github.com/yeetime/sou2
 主页：https://cux.huitheme.cn/
 链接：https://www.huitheme.com/wordpress-theme-switch-dark.html
 ========================================
-最后修改
+最后修改整理
 作者：九凌少子
 主页：https://www.yumus.cn/
 github：https://github.com/asir3q/soso
@@ -85,11 +85,11 @@ function GetQueryString(name) {
     localStorage.setItem("isEnginetype", nameEngine);
     switEngine(localStorage.getItem("isEnginetype"));
   }
-  //关闭搜索引擎切换
+  //关闭弹出层相关事件
   function isoff() {
     $("#engine").hide();
-    $(".m-mask").hide();
-    $(".form").removeClass("mask");
+    $(".mask").hide();
+    $(".form").removeClass("alClose");
   }
   //获取百度接口中的联想关键字
   function keywordReminder() {
@@ -128,15 +128,36 @@ function GetQueryString(name) {
       $("#Sugword").hide();
     }
   }
+  //获取推荐网站数据
+  function BookmarkList() {
+    $.ajax({
+      url: "./././website.json",
+      dataType: "json",
+      success: function (data) {
+        let bookmarkgather = '';
+        $.each(data[0].object,function(i,val){
+          let sitelist = '';
+          $.each(val.sitelist,function(i,val){
+            sitelist = sitelist + '<li><a href="'+val.site+'" target="_blank"><div class="siteimg"><img src="'+val.img+'" alt="'+val.title+'"></div><span>'+val.title+'</span></a></li>';
+          });
+          bookmarkgather = bookmarkgather+'<li><h3>'+val.category+'</h3><ul class="gather">'+sitelist+'</ul></li>';
+        });
+        $('#bookmarkgather').append(bookmarkgather);
+      },
+      error: function () {
+        $('#bookmarkgather').append('<span style="display: flex;justify-content: center;">貌似出了点问题，刷新下页面试试～</span>');
+      }
+    });
+  }
   $(function () {
     //点击输入框搜索引擎图标，显示搜索引擎切换面板
     $(document).on("click", ".search-type", function () {
       $("#engine").show();
-      $(".m-mask").show();
-      $(".form").addClass("mask");
+      $(".mask").show();
+      $(".form").addClass("alClose");
     });
-    //点击非搜索引擎切换区域执行关闭搜索引擎切换面板操作
-    $(document).on("click", ".mask", function () {
+    //点击非搜索引擎切换区域事件
+    $(document).on("click", ".alClose", function () {
       isoff();
     });
     //切换为百度搜索
@@ -217,13 +238,42 @@ function GetQueryString(name) {
       $(".delete").hide();
       $("#submit").attr("disabled", true);
     });
-    //点击非输入框以外区域隐藏联系关键字
+    //点击打开今日诗词弹窗
+    $(document).on("click", ".hitokoto_content", function () {
+      $(".shici").addClass("shutter_open");
+    });
+    //点击打开网址导航弹窗
+    $(document).on("click", ".btnGuide", function () {
+      $(".bookmark").addClass("shutter_open");
+    });
+    //点击打开切换壁纸弹窗
+    $(document).on("click", ".btnWallpaper", function () {
+      $(".wallpaper").addClass("shutter_open");
+    });
+    //点击打开关于我们弹窗
+    $(document).on("click", ".btnAbout", function () {
+      $(".about").addClass("shutter_open");
+    });
+    //点击弹窗关闭按钮
+    $(document).on("click", ".btnClose", function () {
+      $(".close_area").removeClass("shutter_open");
+    });
+    //点击非输入框以外区域隐藏联想关键字
     $(document).mouseup(function (e) {
       var con = $("#search-text");
       if (!con.is(e.target) && con.has(e.target).length === 0) {
         $("#Sugword").hide();
       }
     });
+    //点击弹出层以外区域关闭弹出层
+    $(document).mouseup(function (e) {
+      var con = $(".close_area_out");
+      if (!con.is(e.target) && con.has(e.target).length === 0) {
+        $(".close_area").removeClass("shutter_open");
+      }
+    });
+    //请求推荐网站
+    BookmarkList();
     //键盘上下按键选择百度接口联想的关键字并将联想的关键字文本展示在输入框中
     $("#search-text").keydown(function (e) {
       if ($.trim($(this).val()).length === 0) return;
@@ -246,21 +296,17 @@ function GetQueryString(name) {
       $("[data-id=" + id + "]").addClass("choose").siblings().removeClass("choose");
       $("#search-text").val($("[data-id=" + id + "]").text());
     });
+    //切换壁纸开始
+    $(document).on("click", "#bingWall", function () {
+      $("body").attr("style", "background-image:url(https://api.kdcc.cn/)");
+      localStorage.setItem("isWallpaper", "bing");
+    });
+    $(document).on("click", "#randomWall", function () {
+      $("body").attr("style", "background-image:url(https://api.kdcc.cn/img/rand.php)");
+      localStorage.setItem("isWallpaper", "random");
+    });
+    $(document).on("click", "#noneWall", function () {
+      $("body").removeAttr("style");
+      localStorage.setItem("isWallpaper", "none");
+    });
   });
-  //以下为暗黑模式与明亮模式的切换
-  function setDark() {
-    localStorage.setItem("isDarkMode", "1");
-    document.documentElement.classList.add("dark");
-  }
-  function removeDark() {
-    localStorage.setItem("isDarkMode", "0");
-    document.documentElement.classList.remove("dark");
-  }
-  function switchDarkMode() {
-    let isDark = localStorage.getItem("isDarkMode");
-    if (isDark == "1") {
-      removeDark();
-    } else {
-      setDark();
-    }
-  }
