@@ -37,9 +37,12 @@ GitHub|engine=github|https://so.yumus.cn/?engine=github|
 
 <br>
 问：我想要设置自己喜欢的壁纸做背景，可以吗？
-<br>
+<br><br>
 答：当然可以了，你可以把喜欢的壁纸上传到第三方图床中，然后在参数“bg”后面加上你的壁纸链接，例如“<strong>https://so.yumus.cn/?bg=图片链接</strong>”，记住哦，一定要上传至没有防盗链的图床，并且使用参数对壁纸偏好进行设置权重最高，框框将优先遵循参数的设置项。
 <br>
+
+
+
 ### 感谢
 <br>
 感谢如下作者
