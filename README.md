@@ -28,17 +28,17 @@ GitHub|engine=github|https://so.yumus.cn/?engine=github|
 茶杯狐|engine=chabeihu|https://so.yumus.cn/?engine=chabeihu|
 
 ---
-####帮助
+### 帮助
 
 问：我想要一直保持我的壁纸偏好怎么办？
 
-答：针对这一点我们做了一点补救措施，如果你想要在清理浏览器缓存后，依旧保留住在框框做的壁纸偏好设置，你可以在框框的链接中添加一个参数“bg”，例如你喜欢随机壁纸模式，那么你可以将链接“https://so.yumus.cn/?bg=random”设置成你的浏览器主页，而喜欢纯色模式可以设置链接“https://so.yumus.cn/?bg=none”为浏览器主页。
+答：针对这一点我们做了一点补救措施，如果你想要在清理浏览器缓存后，依旧保留住在框框做的壁纸偏好设置，你可以在框框的链接中添加一个参数“bg”，例如你喜欢随机壁纸模式，那么你可以将链接“<strong><a href="https://so.yumus.cn/?bg=random">https://so.yumus.cn/?bg=random</a></strong>”设置成你的浏览器主页，而喜欢纯色模式可以设置链接“<strong><a href="https://so.yumus.cn/?bg=none">https://so.yumus.cn/?bg=none</a></strong>”为浏览器主页。
+
 <br>
 问：我想要设置自己喜欢的壁纸做背景，可以吗？
-
-答：当然可以了，你可以把喜欢的壁纸上传到第三方图床中，然后在参数“bg”后面加上你的壁纸链接，例如“https://so.yumus.cn/?bg=图片链接”，记住哦，一定要上传至没有防盗链的图床，并且使用参数对壁纸偏好进行设置权重最高，框框将优先遵循参数的设置项。
+答：当然可以了，你可以把喜欢的壁纸上传到第三方图床中，然后在参数“bg”后面加上你的壁纸链接，例如“<strong>https://so.yumus.cn/?bg=图片链接</strong>”，记住哦，一定要上传至没有防盗链的图床，并且使用参数对壁纸偏好进行设置权重最高，框框将优先遵循参数的设置项。
 <br>
-###感谢
+### 感谢
 <br>
 感谢如下作者
 <br>
