@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="format-detection" content="email=no" />
     <meta name="author" content="九凌少子" />
-    <meta name='revised' content='20230226' />
+    <meta name='revised' content='20230302' />
     <meta name="format-detection" content="address=no" />
     <title>框框</title>
     <meta name='keywords' content='框框主页,框框,一个框主页,简单的浏览器主页,简洁的浏览器主页,语幕搜索,一个框搜索'/> 
@@ -21,7 +21,6 @@
     <script src="./style/js/jquery.min.js"></script>
     <script src="./style/js/darkmode-js.min.js"></script>
     <script src="./style/js/so.js"></script>
-    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 </head>
 <body>
     <div class="main">
@@ -53,8 +52,8 @@
                             </ul>
                         </div>
                         <input type="text" class="field" id="search-text" style="outline:0" maxlength="2048" placeholder="输入关键词进行搜索…" autofocus="autofocus" autocomplete="off" value="" name="wd">
-                        <div class="delete" style="display:none;"><img src="./style/img/delete.svg"></div>
-                        <button type="submit" class="submit" id="submit" disabled="disabled"><img src="./style/img/sosuo.svg"></button>
+                        <div class="delete" style="display:none;"></div>
+                        <button type="submit" class="submit" id="submit" disabled="disabled"></button>
                         <ul id="Sugword" style="display:none;"></ul>
                     </form>
                 </div>
@@ -133,11 +132,9 @@
                 </div>
                 <div class="shutter_content">
                     <p class="monolog">Hello，我是框框的作者<a href="https://www.yumus.cn" target="_blank" rel="me">九凌少子</a>，欢迎你使用框框作为浏览器主页也感谢你对框框的支持，框框初始版本编写于2022年年末至2023年春节，作为一款在线浏览器主页框框杜绝花里胡哨的功能及过度设计，未来也将一直保持简洁、干净、纯粹的理念及初心运营。</p>
-                    <p class="monolog">坚持与浏览器本身进行高度的原生适配是我的初衷，框框支持对壁纸进行偏好设置，但更愿意用户使用纯色模式，将此链接（<strong><a href="https://so.yumus.cn/?bg=none">https://so.yumus.cn/?bg=none</a></strong>
-                        ）填写至你的浏览器主页设置项中，你将直接永久的获得框框的纯色模式。</p>
+                    <p class="monolog">坚持与浏览器本身进行高度的原生适配是我的初衷，框框支持对壁纸进行偏好设置，但更愿意用户使用纯色模式，将此链接（<strong><a href="https://so.yumus.cn/?bg=none">https://so.yumus.cn/?bg=none</a></strong>）填写至你的浏览器主页设置项中，你将直接永久的获得框框的纯色模式。</p>
                     <p class="monolog">框框并不支持自定义添加书签或常用网站，但框框也提供了网址导航功能，在未来的运营中我将推荐更多更好且更具备专业性的网站给大家。</p>
-                    <p class="monolog">框框页面中有一个京东与淘宝的导购网站链接“<strong><a href="https://quan.yumus.cn/">语幕好券（https://quan.yumus.cn/）</a></strong>”，里面的商品都可以领取到京东或淘宝的官方优惠券，如果你想要大力支持我，不妨购物前在里面看看也许有你满意的商品呢！你通过“语幕好券”跳转至京东或淘宝购物后，我将获得他们官方给予的佣金🙏🙏
-                        🙏。</p>
+                    <p class="monolog">框框页面中有一个京东与淘宝的导购网站链接“<strong><a href="https://quan.yumus.cn/">语幕好券（https://quan.yumus.cn/）</a></strong>”，里面的商品都可以领取到京东或淘宝的官方优惠券，如果你想要大力支持我，不妨购物前在里面看看也许有你满意的商品呢！你通过“语幕好券”跳转至京东或淘宝购物后，我将获得他们官方给予的佣金🙏🙏🙏。</p>
                     <p class="monolog">如果你还想做我的大金主，可以选择以下方式打赏我，你的每一分爱都是对我的莫大鼓励与支持。</p>
                     <ul class="reward">
                         <li><img src="./style/img/wepay.png" alt="微信支付"></li>
@@ -170,15 +167,18 @@
             $("body").attr("style", "background-image:url(" + isWallpaper + ")");
             break;
         };
+    </script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
         jinrishici.load(function(result) {
             $("#verse_recommend").html('『' + result.data.content + '』');
             $("#verse_author_title").html('—— ' + result.data.origin.author + '「' + result.data.origin.title + '」');
             $("#verse_title").html('『 ' + result.data.origin.title + ' 』');
             $("#verse_author_dynasty").html(result.data.origin.author + ' • ' + result.data.origin.dynasty);
-            let verse_contents = result.data.origin.content[0];
-            for(let i = 1;i<result.data.origin.content.length;i++){
-                verse_contents += "<br>" + result.data.origin.content[i];
-            }
+            let verse_contents = '';
+            $.each(result.data.origin.content,function(i,val){
+                verse_contents +=  val+"<br>";
+            });
             $("#verse_content").html(verse_contents);
         });
         // 我的要求并不高，保留这一句版权信息可好？保留了，你不会损失什么；而保留版权，是对作者最大的尊重。
