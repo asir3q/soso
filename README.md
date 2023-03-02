@@ -1,6 +1,5 @@
-https://user-images.githubusercontent.com/64707090/216643496-baaa63de-1a99-43ca-95b1-331d92985c45.mov
+<img width="1521" alt="截屏2023-03-02 19 30 40" src="https://user-images.githubusercontent.com/64707090/222416698-7074e9b9-2e5f-46d9-8425-14a795736242.png">
 
-<img width="1574" alt="截屏2023-02-03 23 46 04" src="https://user-images.githubusercontent.com/64707090/216645942-9bd7375f-3d7b-44aa-8083-c1db846793a8.png">
 
 
 整个主页使用 HTML+CSS+JS 编写，纯静态上传至支持静态访问的仓库或空间即可使用
