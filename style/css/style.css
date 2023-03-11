@@ -25,11 +25,11 @@ body{width:100vw;height:100vh;background-position:50%;background-size:cover}
 .field{display:flex;margin:0 89px 0 54px;padding:0;width:calc(100% - 143px);height:48px;color:#000;text-overflow:ellipsis;font-size:14px;line-height:48px;align-items:center}
 .delete,.field,.submit{border:0;background:0 0}
 .delete,.submit{position:absolute;top:0}
-.submit{right:6px;padding:9px;width:48px;height:48px;background-image:url(style/img/sosuo.svg);background-position:9px 9px;background-size:30px}
+.submit{right:6px;padding:9px;width:48px;height:48px;background-image:url(../img/sosuo.svg);background-position:9px 9px;background-size:30px}
 .delete,.submit{background-repeat:no-repeat}
-.delete{right:54px;padding:12px 2px;width:24px;height:24px;background-image:url(style/img/delete.svg);background-position:2px 12px;background-size:24px}
+.delete{right:54px;padding:12px 2px;width:24px;height:24px;background-image:url(../img/delete.svg);background-position:2px 12px;background-size:24px}
 #Sugword{margin:0 15px;padding:6px 0 20px;border-top:1px solid #e6e6e6}
-#Sugword li{display:-webkit-box;overflow:hidden;margin:0 -15px;padding:0 54px;height:32px;background-image:url(style/img/sosuo.svg);background-position:left 25px top 6px;background-size:20px;background-repeat:no-repeat;color:rgba(0,0,0,.68);font-size:14px;line-height:32px;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+#Sugword li{display:-webkit-box;overflow:hidden;margin:0 -15px;padding:0 54px;height:32px;background-image:url(../img/sosuo.svg);background-position:left 25px top 6px;background-size:20px;background-repeat:no-repeat;color:rgba(0,0,0,.68);font-size:14px;line-height:32px;-webkit-line-clamp:1;-webkit-box-orient:vertical}
 #Sugword li:hover,.choose{background-color:#f2f2f2;color:#000}
 #engine{position:absolute;top:55px;left:6px;padding:10px 10px 0;max-width:calc(100% - 32px);box-shadow:0 0 10px rgb(0 25 104/5%)}
 #engine,#engine ul,#engine ul li{border-radius:5px}
