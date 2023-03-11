@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -10,8 +11,8 @@
     <meta name="renderer" content="webkit" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="format-detection" content="email=no" />
-    <meta name="author" content="九凌少子" />
-    <meta name='revised' content='20230302' />
+    <meta content="九凌少子" name="author"/>
+    <meta name='revised' content='20230310' />
     <meta name="format-detection" content="address=no" />
     <title>框框</title>
     <meta name='keywords' content='框框主页,框框,一个框主页,简单的浏览器主页,简洁的浏览器主页,语幕搜索,一个框搜索'/> 
@@ -19,10 +20,30 @@
     <link rel="shortcut icon" href="./style/img/favicon.ico">
     <link rel="stylesheet" href="./style/css/style.css">
     <script src="./style/js/jquery.min.js"></script>
-    <script src="./style/js/darkmode-js.min.js"></script>
-    <script src="./style/js/so.js"></script>
+    <script src="./style/js/main.js"></script>
 </head>
 <body>
+    <script>
+        //读取本地壁纸偏好localStorage，若当前无记录则调用URL定制或初始默认
+        var isWallpaper = GetQueryString("bg");
+        if (isWallpaper == null || isWallpaper == "undefined" || isWallpaper == "") {
+            isWallpaper = localStorage.getItem("isWallpaper");
+        }
+        switch (isWallpaper) {
+        case null:
+        case "bing":
+            $("body").attr("style","background-image:url(https://api.kdcc.cn/)");
+            break;
+        case "random":
+            $("body").attr("style","background-image:url(https://api.kdcc.cn/img/rand.php)");
+            break;
+        case "none":
+            break;
+        default:
+            $("body").attr("style", "background-image:url(" + isWallpaper + ")");
+            break;
+        };
+    </script>
     <div class="main">
         <header class="site-header">
             <div class="meicon  yhq fillet"><a href="https://quan.yumus.cn/" target="_blank" title="网购优惠券"><svg t="1677074655800" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5643" width="200" height="200"><path d="M616.853333 90.517333a42.666667 42.666667 0 0 0-60.309333-0.042666L90.453333 556.544a42.752 42.752 0 0 0 0.042667 60.309333l58.858667 58.837334a149.333333 149.333333 0 0 1 198.933333 198.933333l58.837333 58.858667a42.666667 42.666667 0 0 0 60.309334 0.042666L933.546667 467.456a42.752 42.752 0 0 0-0.042667-60.309333l-45.013333-45.013334a149.333333 149.333333 0 0 1-205.290667-205.290666l-66.346667-66.325334zM963.626667 376.981333a85.418667 85.418667 0 0 1 0.042666 120.661334L497.642667 963.690667a85.333333 85.333333 0 0 1-120.661334-0.042667l-83.072-83.072a106.666667 106.666667 0 0 0-150.464-150.464l-83.093333-83.093333a85.418667 85.418667 0 0 1-0.042667-120.661334L526.357333 60.309333a85.333333 85.333333 0 0 1 120.661334 0.042667l93.738666 93.738667a106.666667 106.666667 0 1 0 150.464 150.464l72.426667 72.426666z m-435.050667-29.397333l-181.013333 181.013333a21.333333 21.333333 0 0 0 30.165333 30.165334l181.013333-181.013334a21.333333 21.333333 0 0 0-30.165333-30.165333z m117.653333 128l-170.666666 170.666667a21.333333 21.333333 0 0 0 30.165333 30.165333l170.666667-170.666667a21.333333 21.333333 0 0 0-30.165334-30.165333z" fill="#272636" p-id="5644" data-spm-anchor-id="a313x.7781069.0.i15" class="selected"></path></svg></a></div>
@@ -35,6 +56,17 @@
                 <div class="so">
                     <form method="get" class="form" action="https://www.baidu.com/s" target="_blank">
                         <div class="search-type" style="background-image:url(./style/img/baidu.svg);"></div>
+                        <script>
+                            $(function () {
+                                //读取本地搜索引擎设置的localStorage，若当前无搜索引擎切换记录则调用URL定制或初始默认
+                                let isEngine = localStorage.getItem("isEnginetype");
+                                if (isEngine == null || isEngine == "undefined" || isEngine == "") {
+                                    switEngine(GetQueryString("engine"));
+                                } else {
+                                    switEngine(isEngine);
+                                }
+                            });
+                        </script>
                         <div id="engine" style="display:none;">
                             <ul>
                                 <li class="baidu"><img src="./style/img/baidu.svg"><span>百度</span></li>
@@ -48,7 +80,7 @@
                                 <li class="github"><img src="./style/img/github.svg"><span>GitHub</span></li>
                                 <li class="bilibili"><img src="./style/img/bilibili.svg"><span>B站</span></li>
                                 <li class="zhihu"><img src="./style/img/zhihu.svg"><span>知乎</span></li>
-                                <li class="douban"><img src="./style/img/douban.svg"><span>豆瓣</span></li>
+                                <li class="pexels"><img src="./style/img/pexels.svg"><span>Pexels</span></li>
                             </ul>
                         </div>
                         <input type="text" class="field" id="search-text" style="outline:0" maxlength="2048" placeholder="输入关键词进行搜索…" autofocus="autofocus" autocomplete="off" value="" name="wd">
@@ -65,7 +97,7 @@
                 <span id="verse_author_title"></span>
             </div>
         </div>
-        <footer class="copyright">Copyright ©2022-<script>document.write(new Date().getFullYear())</script> <a href="https://www.yumus.cn/">语幕</a>&nbsp;｜&nbsp;<a rel="nofollow" target="_blank" href="http://beian.miit.gov.cn">京ICP备XXXXXXXXXX号</a></footer>
+        <footer class="copyright">Copyright ©2022-<script>document.currentScript.insertAdjacentHTML('afterEnd',new Date().getFullYear())</script> <a href="https://www.yumus.cn/">语幕</a>&nbsp;｜&nbsp;<a rel="nofollow" target="_blank" href="http://beian.miit.gov.cn">京ICP备XXXXXXXXXX号</a></footer>
     </div>
     <div class="mask alClose" style="display:none;"></div>
     <div class="shutter shici close_area">
@@ -107,6 +139,23 @@
                     <div class="butList"><span>每日必应</span><input id="bingWall" class="switch-box" name="butW" type="radio"></div>
                     <div class="butList"><span>随机壁纸</span><input id="randomWall" class="switch-box" name="butW" type="radio"></div>
                     <div class="butList"><span>纯色模式</span><input id="noneWall" class="switch-box" name="butW" type="radio"></div>
+                    <script>
+                        //壁纸偏好按钮相关
+                        switch (isWallpaper) {
+                        case null:
+                        case "bing":
+                            $("#bingWall").attr("checked",true);
+                            break;
+                        case "random":
+                            $("#randomWall").attr("checked",true);
+                            break;
+                        case "none":
+                            $("#noneWall").attr("checked",true);
+                            break;
+                        default:
+                            break;
+                        };
+                    </script>
                     <div class="faqList">
                         <p>问：清理浏览器缓存壁纸偏好为什么会失效？</p>
                         <p>答：框框不存在用户登录，你所有的设置都是保存在本地的浏览器中（包括壁纸偏好与搜索引擎切换），因此如果你清理了浏览器缓存，框框在本地浏览器中读取不到你以前设置过的数据，反馈给你的现象就是清理浏览器缓存后你所做的设置都失效了。</p>
@@ -117,7 +166,7 @@
                     </div>
                     <div class="faqList">
                         <p>问：我想要设置自己喜欢的壁纸做背景，可以吗？</p>
-                        <p>答：当然可以了，你可以把喜欢的壁纸上传到第三方图床中，然后在参数“bg”后面加上你的壁纸链接，例如“<strong>https://so.yumus.cn/?bg=图片链接</strong>”，记住哦，一定要上传至没有防盗链的图床，并且使用参数对壁纸偏好进行设置权重最高，框框将优先遵循参数的设置项。</p>
+                        <p>答：当然可以了，你可以把喜欢的壁纸上传到第三方图床中，然后在参数“bg”后面加上你的壁纸链接，例如“<strong>https://so.yumus.cn/?bg=图片链接</strong>”，记住哦，一定要上传至没有防盗链的图床（例如：<strong><a href="https://imgse.com/">路过图床 https://imgse.com</a></strong>），并且使用参数对壁纸偏好进行设置权重最高，框框将优先遵循参数的设置项。</p>
                     </div>
                 </div>
             </div>
@@ -144,32 +193,10 @@
             </div>
         </div>
     </div>
-    <script>
-        let isWallpaper = GetQueryString("bg");
-        if (isWallpaper == null || isWallpaper == "undefined" || isWallpaper == "") {
-            isWallpaper = localStorage.getItem("isWallpaper");
-        }
-        switch (isWallpaper) {
-        case null:
-        case "bing":
-            $("body").attr("style","background-image:url(https://api.kdcc.cn)");
-            $("#bingWall").attr("checked",true);
-            break;
-        case "random":
-            $("body").attr("style","background-image:url(https://api.kdcc.cn/img/rand.php)");
-            $("#randomWall").attr("checked",true);
-            break;
-        case "none":
-            $("body").removeAttr("style");
-            $("#noneWall").attr("checked",true);
-            break;
-        default:
-            $("body").attr("style", "background-image:url(" + isWallpaper + ")");
-            break;
-        };
-    </script>
+    <script src="./style/js/footer.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
     <script>
+        //今日诗词
         jinrishici.load(function(result) {
             $("#verse_recommend").html('『' + result.data.content + '』');
             $("#verse_author_title").html('—— ' + result.data.origin.author + '「' + result.data.origin.title + '」');
@@ -182,7 +209,7 @@
             $("#verse_content").html(verse_contents);
         });
         // 我的要求并不高，保留这一句版权信息可好？保留了，你不会损失什么；而保留版权，是对作者最大的尊重。
-        console.info('作者：九凌少子(https://www.yumus.cn/)\n\n今日诗词来源于：https://www.jinrishici.com/');
+        console.info("作者：九凌少子(https://www.yumus.cn/)\n\n今日诗词来源于：https://www.jinrishici.com/");
     </script>
 </body>
 </html>
