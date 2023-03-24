@@ -132,8 +132,16 @@ $(document).mouseup(function (e) {
     }
 });
 //键盘上下按键选择百度接口联想的关键字并将联想的关键字文本展示在输入框中
-$('#search-text').on('compositionend', () => {
-    $("#search-text").keydown(function (e) {
+var typing = false;
+$('#search-text').on('compositionstart',()=>{
+    typing = true;
+});
+$('#search-text').on('compositionend',()=>{
+    typing = false;
+});
+
+$("#search-text").keydown(function (e) {
+    if(!typing){
         if ($.trim($(this).val()).length === 0) return;
         let id = $(".choose").attr("data-id");
         if (id === undefined) id = 0;
@@ -153,8 +161,9 @@ $('#search-text').on('compositionend', () => {
         if (id < 1) id = length;
         $("[data-id=" + id + "]").addClass("choose").siblings().removeClass("choose");
         $("#search-text").val($("[data-id=" + id + "]").text());
-    });
-})
+    }
+});
+
 //点击打开今日诗词弹窗
 $(document).on("click", ".hitokoto_content", function () {
     $(".shici").addClass("shutter_open");
