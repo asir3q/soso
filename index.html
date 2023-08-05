@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noarchive" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta name="renderer" content="webkit" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="author" content="九凌少子&语幕" />
+    <meta name='revised' content='20230725' />
+    <meta name="format-detection" content="address=no" />
+    <title>框框主页</title>
+    <meta name='keywords' content='框框主页,一个框主页,语幕聚合,语幕搜索,聚合搜索,集合多个搜索引擎的浏览器主页,专注搜索,高效搜索,干净的浏览器主页'/> 
+    <meta name='description' content='框框纯粹、干净、简洁到只提供了一个输入框，框框致力于打造一个专注高效搜索的浏览器主页，框框支持多个站点的搜索引擎切换，在框框你可以方便快速的在不同搜索引擎中切换搜寻想要的信息，此外框框主页支持壁纸设置为每日必应或随机模式，想要免受无关元素打扰你还可以在壁纸偏好开启纯色模式，快把框框设置为你的浏览器主页，让愉快上网从框框开始。'/>
+    <script>
+        var siteweb = window.location.search,
+        sitekey = siteweb.substring(1, siteweb.indexOf("=")),
+        isValue = siteweb.substring(siteweb.indexOf("=") + 1, siteweb.length),
+        isWallpaper = localStorage.getItem("isWallpaper");
+        if (sitekey == "bg" && isValue !== "") {
+            isWallpaper = isValue;
+        } else if (sitekey == "wd" && isValue !== "") {
+            location.href = "./group/?wd=" + isValue;
+        }
+    </script>
+    <link rel="shortcut icon" href="./style/img/kuang.svg">
+    <link rel="stylesheet" href="./style/css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        function qhImg(fileID) {
+            let txtObj = $.ajax({
+                url: "./style/json/" + fileID + ".txt",
+                async: false
+            });
+            let arr = txtObj.responseText.split(/\r?\n/);
+            return (
+                "https://p" + fileID + ".qhimg.com/" + arr[parseInt(Math.random() * 500)]
+            );
+        }
+        switch (isWallpaper) {
+            case null:
+            case "bing":
+                $("body").attr("style","background-image:url(https://api.dujin.org/bing/1920.php)");
+                break;
+            case "random":
+                $("body").attr("style","background-image:url(" + qhImg(parseInt(Math.random() * 20)) + ")");
+                break;
+            case "none":
+                break;
+            default:
+                $("body").attr("style", "background-image:url(" + isWallpaper + ")");
+                break;
+        }
+    </script>
+    <div class="main">
+        <header class="site-header">
+            <div class="meicon btnGuide fillet" title="网址导航"><svg t="1677074844640" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6921" width="200" height="200"><path d="M990.8 550.8c-2.3-24.5-24-43.3-66.1-57-2.1-49.5-12.9-97.5-32.1-143-20.8-49.2-50.6-93.4-88.6-131.4s-82.2-67.8-131.4-88.6c-51-21.6-105.1-32.5-160.9-32.5-55.8 0-109.9 10.9-160.9 32.5-49.2 20.8-93.4 50.6-131.4 88.6-38 38-67.8 82.2-88.6 131.4-21.6 51-32.5 105.1-32.5 160.9 0 18.2 1.2 36.3 3.5 54.1-18.5 9.2-33.3 18.6-43.8 28.1-16.1 14.5-23.5 30-22 46.1 3 32.2 39.8 54.8 112.2 68.5 19 35 42.8 67 71.3 95.5 38 38 82.2 67.8 131.4 88.6 51 21.6 105.1 32.5 160.9 32.5 55.8 0 109.9-10.9 160.9-32.5C721.9 871.8 766.1 842 804 804s67.8-82.2 88.6-131.4c5.5-12.9 10.2-26 14.3-39.3 59.2-25.3 86.7-52.5 83.9-82.5zM511.7 148.4c200.4 0 363.4 163 363.4 363.4 0 33.2-4.5 65.5-12.9 96.1-7.6 2.7-15.9 5.5-24.8 8.3-83.4 26.4-195.8 47.1-316.6 58.4-120.8 11.3-235.2 11.7-322 1.3-4.1-0.5-8.1-1-12-1.5-24.6-48.9-38.4-104.1-38.4-162.5 0-200.5 163-363.5 363.3-363.5z m-436 487.9c-0.3-3.1 5.9-14.1 33.6-29.3 4.5 18.9 10.3 37.4 17.4 55.6-39.8-10.9-50.6-22.6-51-26.3z m436 238.8c-124 0-233.7-62.5-299.3-157.6 38.7 3.9 81.9 5.8 128.2 5.8 57.6 0 119.9-3 183.9-9 121.7-11.4 235.4-32.2 320.9-58.8C789.6 784.6 661 875.1 511.7 875.1zM919 582.9c2.7-15.4 4.5-30.9 5.4-46.6 20.5 8.3 26.4 15.7 26.6 18.3 0.3 3.1-6 13.7-32 28.3z" fill="#272636" p-id="6922" data-spm-anchor-id="a313x.7781069.0.i25" class="selected"></path><path d="M254.6 470.1c1.6 0.4 3.2 0.6 4.7 0.6 9 0 17.2-6.1 19.4-15.3 3.6-15 8.8-29.6 15.3-43.6 4.7-10 0.3-21.9-9.7-26.6-10-4.7-21.9-0.3-26.6 9.7-7.6 16.3-13.6 33.5-17.9 51-2.5 10.7 4 21.5 14.8 24.2zM304.1 355.3c3.8 3.4 8.6 5.1 13.3 5.1 5.5 0 11-2.2 14.9-6.7 44.9-50.2 109.3-78.9 176.5-78.9 11 0 20-9 20-20s-9-20-20-20c-40.1 0-78.7 8.4-114.9 24.9-34.9 16-65.7 38.6-91.4 67.4-7.3 8.2-6.6 20.8 1.6 28.2z" fill="#272636" p-id="6923" data-spm-anchor-id="a313x.7781069.0.i26" class="selected"></path></svg></div>
+            <div class="meicon btnWallpaper area fillet" title="壁纸偏好"><svg t="1677076730072" class="icon" viewBox="0 0 1070 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15895" width="200" height="200"><path d="M847.058824 867.137255H224.627451c-64 0-115.45098-45.176471-115.45098-101.647059V232.156863c0-56.470588 51.45098-101.647059 115.45098-101.647059h84.078431c10.039216 0 18.823529 8.784314 18.82353 18.823529s-8.784314 18.823529-18.82353 18.82353h-84.078431c-42.666667 0-77.803922 28.862745-77.803922 64V765.490196c0 35.137255 35.137255 64 77.803922 64h622.431373c42.666667 0 77.803922-28.862745 77.803921-64V232.156863c0-35.137255-35.137255-64-77.803921-64h-464.313726c-10.039216 0-18.823529-8.784314-18.823529-18.82353s8.784314-18.823529 18.823529-18.823529h464.313726c64 0 115.45098 45.176471 115.45098 101.647059V765.490196c-1.254902 56.470588-52.705882 101.647059-115.45098 101.647059z" fill="#272636" p-id="15896" data-spm-anchor-id="a313x.7781069.0.i46" class="selected"></path><path d="M328.784314 455.529412c-23.843137 0-46.431373-8.784314-64-23.843137-20.078431-17.568627-32.627451-41.411765-35.137255-67.764706-5.019608-55.215686 36.392157-104.156863 91.607843-109.176471 26.352941-2.509804 52.705882 6.27451 74.039216 22.588235s32.627451 41.411765 35.137255 67.764706c2.509804 26.352941-6.27451 52.705882-22.588236 74.039216-17.568627 20.078431-41.411765 32.627451-67.764706 35.137255-6.27451 1.254902-8.784314 1.254902-11.294117 1.254902z m-6.27451-163.137255c-35.137255 2.509804-60.235294 33.882353-57.72549 67.764706 1.254902 16.313725 8.784314 31.372549 22.588235 42.666666 12.54902 11.294118 28.862745 16.313725 46.431373 15.058824 16.313725-1.254902 31.372549-8.784314 42.666666-22.588235 11.294118-12.54902 16.313725-28.862745 15.058824-46.431373-1.254902-16.313725-8.784314-31.372549-22.588236-42.666667-12.54902-10.039216-28.862745-15.058824-46.431372-13.803921zM759.215686 642.509804c-5.019608 0-10.039216-1.254902-13.803921-5.019608L609.882353 501.960784c-7.529412-7.529412-20.078431-7.529412-27.607843 0L446.745098 637.490196c-7.529412 7.529412-18.823529 7.529412-26.352941 0s-7.529412-18.823529 0-26.352941l135.529412-135.529412c11.294118-11.294118 25.098039-16.313725 40.156862-16.313725 15.058824 0 30.117647 6.27451 40.156863 16.313725l135.529412 135.529412c7.529412 7.529412 7.529412 18.823529 0 26.352941-2.509804 3.764706-7.529412 5.019608-12.54902 5.019608z" fill="#272636" p-id="15897" data-spm-anchor-id="a313x.7781069.0.i47" class="selected"></path><path d="M466.823529 692.705882c-5.019608 0-10.039216-1.254902-13.803921-5.019607l-87.843137-87.843138c-1.254902-1.254902-3.764706-1.254902-3.764706-1.254902-1.254902 0-2.509804 0-3.764706 1.254902l-87.843137 87.843138c-7.529412 7.529412-18.823529 7.529412-26.352942 0-7.529412-7.529412-7.529412-18.823529 0-26.352942l87.843138-87.843137c17.568627-17.568627 45.176471-17.568627 61.490196 0l87.843137 87.843137c7.529412 7.529412 7.529412 18.823529 0 26.352942-3.764706 2.509804-8.784314 5.019608-13.803922 5.019607z" fill="#272636" p-id="15898" data-spm-anchor-id="a313x.7781069.0.i50" class="selected"></path></svg></div>
+            <div class="meicon btnAbout area fillet" title="关于框框"><svg t="1677325871141" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2766" width="200" height="200"><path d="M520.8 1013.6h-4.8c-61.6-0.8-121.6-12-178.4-34.4l12-29.6c52.8 20.8 109.6 32 167.2 32h4.8c251.2 0 461.6-203.2 469.6-454.4 4-131.2-44.8-254.4-137.6-347.2C760 87.2 636.8 38.4 505.6 42.4c-256 8-459.2 223.2-454.4 479.2 1.6 78.4 23.2 155.2 61.6 223.2l-28 16c-41.6-72-64-154.4-65.6-238.4C13.6 248.8 231.2 19.2 504 10.4c140-4.8 272 48 371.2 146.4C974.4 256 1026.4 388 1022.4 528c-8.8 268.8-233.6 485.6-501.6 485.6z" fill="#272636" p-id="2767"></path><path d="M543.2 375.2c-27.2 0-49.6-22.4-49.6-49.6 0-27.2 22.4-49.6 49.6-49.6 27.2 0 49.6 22.4 49.6 49.6 0 27.2-22.4 49.6-49.6 49.6zM512 747.2c-20 3.2-36.8-6.4-48-20-14.4-17.6-18.4-42.4-12.8-64L493.6 504c0-12-4-10.4-32.8-16-4-0.8-6.4-6.4-3.2-9.6 20-23.2 52-40 85.6-40 22.4 0 36 15.2 43.2 32.8 6.4 15.2 6.4 32.8 2.4 48l-38.4 144c-4.8 16.8 6.4 33.6 23.2 36.8 8.8 1.6 15.2 0.8 14.4 6.4-5.6 20-36.8 40.8-76 40.8z" fill="#272636" p-id="2768"></path><path d="M99.2 752.8m-16 0a16 16 0 1 0 32 0 16 16 0 1 0-32 0Z" fill="#272636" p-id="2769"></path><path d="M343.2 964.8m-16 0a16 16 0 1 0 32 0 16 16 0 1 0-32 0Z" fill="#272636" p-id="2770"></path><path d="M280 920m-16 0a16 16 0 1 0 32 0 16 16 0 1 0-32 0Z" fill="#272636" p-id="2771"></path></svg></div>
+        </header>
+        <div class="searea">
+            <div class="content">
+                <div class="so">
+                    <form method="get" class="form" action="https://www.baidu.com/s" target="_blank">
+                        <div class="search-type" id=""></div>
+                        <script>
+                            function elemEngine(engImg, engForm, engName) {
+                                $(".search-type").attr("id", engImg);
+                                $(".form").attr("action", engForm);
+                                $("#search-text").attr("name", engName);
+                            }
+                            function switEngine(nameEngine) {
+                                switch (nameEngine) {
+                                    case "bing":
+                                        elemEngine("Enbing", "https://cn.bing.com/search", "q");
+                                        break;
+                                    case "google":
+                                        elemEngine("Engoogle", "https://www.google.com/search", "q");
+                                        break;
+                                    case "sogou":
+                                        elemEngine("Ensogou", "https://www.sogou.com/web", "query");
+                                        break;
+                                    case "wechat":
+                                        elemEngine("Enwechat", "./group/goto.html", "weixin");
+                                        break;
+                                    case "bilibili":
+                                        elemEngine("Enbilibili", "https://search.bilibili.com/all", "keyword");
+                                        break;
+                                    case "zhihu":
+                                        elemEngine("Enzhihu", "https://www.zhihu.com/search", "q");
+                                        break;
+                                    case "qihu":
+                                        elemEngine("Enqihu", "https://www.so.com/s", "q");
+                                        break;
+                                    case "quan":
+                                        elemEngine("Enquan", "./group/goto.html", "yhq");
+                                        break;
+                                    case "duckgo":
+                                        elemEngine("Enduckgo", "https://duckduckgo.com", "q");
+                                        break;
+                                    case "chabeihu":
+                                        elemEngine("Enchabeihu", "./group/goto.html", "cbh");
+                                        break;
+                                    case "pexels":
+                                        elemEngine("Enpexels", "./group/goto.html", "pex");
+                                        break;
+                                    case "juhe":
+                                        elemEngine("Enjuhe", "./group/", "wd");
+                                        break;
+                                    case "yandex":
+                                        elemEngine("Enyandex", "https://yandex.com/search/", "text");
+                                        break;
+                                    case "fsou":
+                                        elemEngine("Enfsou", "https://fsoufsou.com/search", "q");
+                                        break;
+                                    case "baidu":
+                                        default:
+                                        elemEngine("Enbaidu", "https://www.baidu.com/s", "wd");
+                                        break;
+                                }
+                            }
+                            $(function () {
+                                switEngine(localStorage.getItem("isEnginetype"));
+                            });
+                        </script>
+                        <div id="engine" style="display:none;">
+                            <ul>
+                                <li class="juhe"><span>聚合搜索</span></li>
+                                <li class="baidu"><span>百度</span></li>
+                                <li class="bing"><span>必应</span></li>
+                                <li class="yandex"><span>Yandex</span></li>
+                                <li class="google"><span>谷歌</span></li>
+                                <li class="fsou"><span>F搜</span></li>
+                                <li class="sogou"><span>搜狗</span></li>
+                                <li class="wechat"><span>微信</span></li>
+                                <li class="qihu"><span>360</span></li>
+                                <li class="duckgo"><span>DuckGo</span></li>
+                                <li class="quan"><span>优惠券</span></li>
+                                <li class="chabeihu"><span>茶杯狐</span></li>
+                                <li class="bilibili"><span>B站</span></li>
+                                <li class="zhihu"><span>知乎</span></li>
+                                <li class="pexels"><span>Pexels</span></li>
+                            </ul>
+                        </div>
+                        <input type="text" class="field" id="search-text" style="outline:0" maxlength="2048" placeholder="输入关键词进行搜索…" autofocus="autofocus" autocomplete="off" value="" name="wd">
+                        <div class="delete" style="display:none;"></div>
+                        <button type="submit" class="submit" id="submit" disabled="disabled"></button>
+                        <ul id="Sugword" style="display:none;"></ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="hitokoto">
+            <div class="hitokoto_content">
+                <span id="verse_recommend"></span>
+                <span id="verse_author_title"></span>
+            </div>
+        </div>
+        <footer class="copyright">Copyright ©2022-<script>document.currentScript.insertAdjacentHTML('afterEnd',new Date().getFullYear())</script> <a href="https://www.yumus.cn/">语幕</a>&nbsp;｜&nbsp;<a rel="nofollow" target="_blank" href="http://beian.miit.gov.cn">京ICP备**********号</a></footer>
+    </div>
+    <div class="mask alClose" style="display:none;"></div>
+    <div class="shutter shici close_area">
+        <div class="shutter_locking">
+            <div class="shutter_global close_area_out">
+                <div class="shutter_head"><h3>今日诗词</h3><span class="btnClose fillet"><svg t="1676822636760" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3874" width="200" height="200"><path d="M562.281173 510.800685l294.996664-293.466821c13.94971-13.878079 14.020318-36.367279 0.14224-50.316989-13.913894-13.984503-36.367279-14.020318-50.316989-0.14224L512.034792 460.377272 219.528855 166.982082c-13.842263-13.878079-36.367279-13.94971-50.316989-0.071631-13.913894 13.878079-13.948687 36.403095-0.071631 50.352805L461.576587 510.587837 166.721139 803.876604c-13.94971 13.878079-14.020318 36.367279-0.14224 50.316989 6.939039 6.974855 16.084327 10.497075 25.229614 10.497075 9.073656 0 18.148335-3.451612 25.087375-10.354835l294.926056-293.360398 295.17472 296.064996c6.939039 6.974855 16.048511 10.462283 25.193799 10.462283 9.109472 0 18.184151-3.487428 25.12319-10.390651 13.913894-13.878079 13.94971-36.367279 0.071631-50.316989L562.281173 510.800685z" fill="#272636" p-id="3875"></path></svg></span></div>
+                <div class="shutter_content">
+                    <h3 id="verse_title"></h3>
+                    <span id="verse_author_dynasty"></span>
+                    <span id="verse_content"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="full_shutter bookmark close_area">
+        <div class="full_shutter_locking">
+            <div class="full_shutter_global close_area_out">
+                <div class="shutter_head"><h3>网址导航</h3><span class="btnClose fillet"><svg t="1676822636760" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3874" width="200" height="200"><path d="M562.281173 510.800685l294.996664-293.466821c13.94971-13.878079 14.020318-36.367279 0.14224-50.316989-13.913894-13.984503-36.367279-14.020318-50.316989-0.14224L512.034792 460.377272 219.528855 166.982082c-13.842263-13.878079-36.367279-13.94971-50.316989-0.071631-13.913894 13.878079-13.948687 36.403095-0.071631 50.352805L461.576587 510.587837 166.721139 803.876604c-13.94971 13.878079-14.020318 36.367279-0.14224 50.316989 6.939039 6.974855 16.084327 10.497075 25.229614 10.497075 9.073656 0 18.148335-3.451612 25.087375-10.354835l294.926056-293.360398 295.17472 296.064996c6.939039 6.974855 16.048511 10.462283 25.193799 10.462283 9.109472 0 18.184151-3.487428 25.12319-10.390651 13.913894-13.878079 13.94971-36.367279 0.071631-50.316989L562.281173 510.800685z" fill="#272636" p-id="3875"></path></svg></span></div>
+                <div class="full_shutter_content">
+                    <ul class="bookmark_content" id="bookmarkgather"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shutter wallpaper close_area">
+        <div class="shutter_locking">
+            <div class="shutter_global close_area_out">
+                <div class="shutter_head"><h3>壁纸偏好</h3><span class="btnClose fillet"><svg t="1676822636760" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3874" width="200" height="200"><path d="M562.281173 510.800685l294.996664-293.466821c13.94971-13.878079 14.020318-36.367279 0.14224-50.316989-13.913894-13.984503-36.367279-14.020318-50.316989-0.14224L512.034792 460.377272 219.528855 166.982082c-13.842263-13.878079-36.367279-13.94971-50.316989-0.071631-13.913894 13.878079-13.948687 36.403095-0.071631 50.352805L461.576587 510.587837 166.721139 803.876604c-13.94971 13.878079-14.020318 36.367279-0.14224 50.316989 6.939039 6.974855 16.084327 10.497075 25.229614 10.497075 9.073656 0 18.148335-3.451612 25.087375-10.354835l294.926056-293.360398 295.17472 296.064996c6.939039 6.974855 16.048511 10.462283 25.193799 10.462283 9.109472 0 18.184151-3.487428 25.12319-10.390651 13.913894-13.878079 13.94971-36.367279 0.071631-50.316989L562.281173 510.800685z" fill="#272636" p-id="3875"></path></svg></span></div>
+                <div class="shutter_content">
+                    <div class="butList"><span>每日必应</span><input id="bingWall" class="switch-box" name="butW" type="radio"></div>
+                    <div class="butList"><span>随机壁纸</span><input id="randomWall" class="switch-box" name="butW" type="radio"></div>
+                    <div class="butList"><span>纯色模式</span><input id="noneWall" class="switch-box" name="butW" type="radio"></div>
+                    <script>
+                        switch (isWallpaper) {
+                            case null:
+                            case "bing":
+                                $("#bingWall").attr("checked", true);
+                                break;
+                            case "random":
+                                $("#randomWall").attr("checked", true);
+                                break;
+                            case "none":
+                                $("#noneWall").attr("checked", true);
+                                break;
+                            default:
+                                break;
+                        }
+                    </script>
+                    <div class="faqList"><p>问：清理浏览器缓存壁纸偏好为什么会失效？</p><p>答：框框不存在用户登录，你所有的设置都是保存在本地的浏览器中（包括壁纸偏好与搜索引擎切换），因此如果你清理了浏览器缓存，框框在本地浏览器中读取不到你以前设置过的数据，反馈给你的现象就是清理浏览器缓存后你所做的设置都失效了。</p></div>
+                    <div class="faqList"><p>问：我想要一直保持我的壁纸偏好怎么办？</p><p>答：针对这一点我们做了一点补救措施，如果你想要在清理浏览器缓存后，依旧保留住在框框做的壁纸偏好设置，你可以在框框的链接中添加一个参数“bg”，例如你喜欢随机壁纸模式，那么你可以将链接“<strong><a href="https://so.yumus.cn/?bg=random">https://so.yumus.cn/?bg=random</a></strong>”设置成你的浏览器主页，而喜欢纯色模式可以设置链接“<strong><a href="https://so.yumus.cn/?bg=none">https://so.yumus.cn/?bg=none</a></strong>”为浏览器主页。</p></div>
+                    <div class="faqList"><p>问：我想要设置自己喜欢的壁纸做背景，可以吗？</p><p>答：当然可以了，你可以把喜欢的壁纸上传到第三方图床中，然后在参数“bg”后面加上你的壁纸链接，例如“<strong>https://so.yumus.cn/?bg=图片链接</strong>”，记住哦，一定要上传至没有防盗链的图床（例如：<strong><a href="https://imgse.com/">路过图床 https://imgse.com</a></strong>），并且使用参数对壁纸偏好进行设置权重最高，框框将优先遵循参数的设置项。</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shutter about close_area">
+        <div class="shutter_locking">
+            <div class="shutter_global close_area_out">
+                <div class="shutter_head"><h3>关于框框</h3><span class="btnClose fillet"><svg t="1676822636760" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3874" width="200" height="200"><path d="M562.281173 510.800685l294.996664-293.466821c13.94971-13.878079 14.020318-36.367279 0.14224-50.316989-13.913894-13.984503-36.367279-14.020318-50.316989-0.14224L512.034792 460.377272 219.528855 166.982082c-13.842263-13.878079-36.367279-13.94971-50.316989-0.071631-13.913894 13.878079-13.948687 36.403095-0.071631 50.352805L461.576587 510.587837 166.721139 803.876604c-13.94971 13.878079-14.020318 36.367279-0.14224 50.316989 6.939039 6.974855 16.084327 10.497075 25.229614 10.497075 9.073656 0 18.148335-3.451612 25.087375-10.354835l294.926056-293.360398 295.17472 296.064996c6.939039 6.974855 16.048511 10.462283 25.193799 10.462283 9.109472 0 18.184151-3.487428 25.12319-10.390651 13.913894-13.878079 13.94971-36.367279 0.071631-50.316989L562.281173 510.800685z" fill="#272636" p-id="3875"></path></svg></span></div>
+                <div class="shutter_content">
+                    <p class="monolog">Hello，我是框框的作者<a href="https://www.yumus.cn" target="_blank" rel="me">九凌少子</a>，欢迎你使用框框作为浏览器主页也感谢你对框框的支持，框框初始版本编写于2022年年末至2023年春节，作为一款在线浏览器主页框框杜绝花里胡哨的功能及过度设计，未来也将一直保持简洁、干净、纯粹的理念及初心运营。</p>
+                    <p class="monolog">坚持与浏览器本身进行高度的原生适配是我的初衷，框框支持对壁纸进行偏好设置，但更愿意用户使用纯色模式，将此链接（<strong><a href="https://so.yumus.cn/?bg=none">https://so.yumus.cn/?bg=none</a></strong>）填写至你的浏览器主页设置项中，你将直接永久的获得框框的纯色模式。</p>
+                    <p class="monolog">框框并不支持自定义添加书签或常用网站，但框框也提供了网址导航功能，在未来的运营中我将推荐更多更好且更具备专业性的网站给大家。</p>
+                    <p class="monolog">框框页面中有一个京东与淘宝的导购网站链接“<strong><a href="https://quan.yumus.cn/">语幕好券（https://quan.yumus.cn/）</a></strong>”，里面的商品都可以领取到京东或淘宝的官方优惠券，如果你想要大力支持我，不妨购物前在里面看看也许有你满意的商品呢！你通过“语幕好券”跳转至京东或淘宝购物后，我将获得他们官方给予的佣金🙏🙏🙏。</p>
+                    <p class="monolog">如果你还想做我的大金主，可以选择以下方式打赏我，你的每一分爱都是对我的莫大鼓励与支持。</p>
+                    <img class="reward" src="./style/img/pay.png" alt="打赏">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).on("click", ".search-type", function () {
+            $("#engine").show();
+            $(".mask").show();
+            $(".form").addClass("alClose");
+        });
+        function operEngine(nameEngine) {
+            localStorage.setItem("isEnginetype", nameEngine);
+            switEngine(localStorage.getItem("isEnginetype"));
+        }
+        $(document).on("click", ".baidu", function () {
+            operEngine("baidu");
+        });
+        $(document).on("click", ".bing", function () {
+            operEngine("bing");
+        });
+        $(document).on("click", ".yandex", function () {
+            operEngine("yandex");
+        });
+        $(document).on("click", ".fsou", function () {
+            operEngine("fsou");
+        });
+        $(document).on("click", ".google", function () {
+            operEngine("google");
+        });
+        $(document).on("click", ".sogou", function () {
+            operEngine("sogou");
+        });
+        $(document).on("click", ".wechat", function () {
+            operEngine("wechat");
+        });
+        $(document).on("click", ".juhe", function () {
+            operEngine("juhe");
+        });
+        $(document).on("click", ".bilibili", function () {
+            operEngine("bilibili");
+        });
+        $(document).on("click", ".zhihu", function () {
+            operEngine("zhihu");
+        });
+        $(document).on("click", ".qihu", function () {
+            operEngine("qihu");
+        });
+        $(document).on("click", ".quan", function () {
+            operEngine("quan");
+        });
+        $(document).on("click", ".chabeihu", function () {
+            operEngine("chabeihu");
+        });
+        $(document).on("click", ".duckgo", function () {
+            operEngine("duckgo");
+        });
+        $(document).on("click", ".pexels", function () {
+            operEngine("pexels");
+        });
+        $(document).on("click", ".alClose", function () {
+            $("#engine").hide();
+            $(".mask").hide();
+            $(".form").removeClass("alClose");
+        });
+        function keywordReminder() {
+            let keywords = $("#search-text").val();
+            if (keywords == "" || keywords == null || keywords == undefined) {
+                $("#Sugword").hide();
+                $(".delete").hide();
+                $("#submit").attr("disabled", true);
+                return;
+            }
+            $("#submit").attr("disabled", false);
+            $(".delete").show();
+            if (keywords != "0") {
+                $.ajax({
+                    url: "https://suggestion.baidu.com/su?wd=" + keywords,
+                    dataType: "jsonp",
+                    jsonp: "cb",
+                    success: function (data) {
+                        $("#Sugword").empty().show();
+                        if (data.s == "") {
+                            $("#Sugword").empty();
+                            $("#Sugword").hide();
+                        }
+                        $.each(data.s, function (i, val) {
+                            $("#Sugword").append(`<li class="sug"data-id="${i + 1}">${val}</li>`);
+                        });
+                        $("#Sugword").attr("data-length", data.s["length"]);
+                    },
+                    error: function () {
+                        $("#Sugword").empty().show();
+                        $("#Sugword").hide();
+                    }
+                });
+            } else {
+                $("#Sugword").empty();
+                $("#Sugword").hide();
+            }
+        }
+        $("#search-text").bind("input porpertychange", function () {
+            keywordReminder();
+        });
+        $("#search-text").focus(function () {
+            keywordReminder();
+        });
+        $(document).on("click", "#Sugword li", function () {
+            let word = $(this).text();
+            $("#search-text").val(word);
+            $("#Sugword").empty();
+            $("#Sugword").hide();
+            $(".submit").trigger("click");
+        });
+        $(document).on("click", ".delete", function () {
+            $("#search-text").val("");
+            $("#Sugword").hide();
+            $(".delete").hide();
+            $("#submit").attr("disabled", true);
+        });
+        $(document).mouseup(function (e) {
+            var con = $("#search-text");
+            if (!con.is(e.target) && con.has(e.target).length === 0) {
+                $("#Sugword").hide();
+            }
+        });
+        var typing = false;
+        $("#search-text").on("compositionstart", () => {
+            typing = true;
+        });
+        $("#search-text").on("compositionend", () => {
+            typing = false;
+        });
+        $("#search-text").keydown(function (e) {
+            if (!typing && $("#Sugword").attr("data-length") != 0) {
+                if ($.trim($(this).val()).length === 0) return;
+                let id = $(".choose").attr("data-id");
+                if (id === undefined) id = 0;
+                switch (e.key) {
+                    case "ArrowUp":
+                        id--;
+                        break;
+                    case "ArrowDown":
+                        id++;
+                        break;
+                    default:
+                        return;
+                        break;
+                }
+                let length = $("#Sugword").attr("data-length");
+                if (id > length) id = 1;
+                if (id < 1) id = length;
+                $("[data-id=" + id + "]")
+                .addClass("choose")
+                .siblings()
+                .removeClass("choose");
+                $("#search-text").val($("[data-id=" + id + "]").text());
+            }
+        });
+        $(document).on("click", ".hitokoto_content", function () {
+            $(".shici").addClass("shutter_open");
+        });
+        $(document).on("click", ".btnWallpaper", function () {
+            $(".wallpaper").addClass("shutter_open");
+        });
+        $(document).on("click", ".btnAbout", function () {
+            $(".about").addClass("shutter_open");
+        });
+        $(document).on("click", ".btnClose", function () {
+            $(".close_area").removeClass("shutter_open");
+        });
+        $(document).mouseup(function (e) {
+            var con = $(".close_area_out");
+            if (!con.is(e.target) && con.has(e.target).length === 0) {
+                $(".close_area").removeClass("shutter_open");
+            }
+        });
+        function BookmarkList() {
+            $.ajax({
+                url: "./style/json/website.json",
+                dataType: "json",
+                success: function (data) {
+                    let bookmarkgather = "";
+                    $.each(data[0].object, function (i, val) {
+                        let sitelist = "";
+                        $.each(val.sitelist, function (i, val) {
+                            sitelist += '<li><a href="' + val.site + '" target="_blank"><div class="siteimg"><img src="' + val.img + '" alt="' + val.title + '"></div><span>' + val.title + "</span></a></li>";
+                        });
+                        bookmarkgather += "<li><h3>" + val.category + '</h3><ul class="gather">' + sitelist + "</ul></li>";
+                    });
+                    $("#bookmarkgather").append(bookmarkgather);
+                },
+                error: function () {
+                    $("#bookmarkgather").append(
+                        '<span style="display: flex;justify-content: center;">貌似出了点问题，刷新下页面试试～</span>'
+                    );
+                }
+            });
+        }
+        let isFirst = false;
+        $(document).on("click", ".btnGuide", function () {
+            $(".bookmark").addClass("shutter_open");
+            if (!isFirst) {
+                BookmarkList();
+                isFirst = true;
+            }
+        });
+        $(document).on("click", "#bingWall", function () {
+            $("body").attr("style","background-image:url(https://api.dujin.org/bing/1920.php)");
+            localStorage.setItem("isWallpaper", "bing");
+        });
+        $(document).on("click", "#randomWall", function () {
+            $("body").attr("style","background-image:url(" + qhImg(parseInt(Math.random() * 20)) + ")");
+            localStorage.setItem("isWallpaper", "random");
+        });
+        $(document).on("click", "#noneWall", function () {
+            $("body").removeAttr("style");
+            localStorage.setItem("isWallpaper", "none");
+        });
+    </script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        jinrishici.load(function (result) {
+            $("#verse_recommend").html("『" + result.data.content + "』");
+            $("#verse_author_title").html("—— " + result.data.origin.author + "「" + result.data.origin.title + "」");
+            $("#verse_title").html("『 " + result.data.origin.title + " 』");
+            $("#verse_author_dynasty").html(result.data.origin.author + " • " + result.data.origin.dynasty);
+            let verse_contents = "";
+            $.each(result.data.origin.content, function (i, val) {
+                verse_contents += val + "<br>";
+            });
+            $("#verse_content").html(verse_contents);
+        });
+        console.info("作者：九凌少子(https://www.yumus.cn/)\n\n壁纸来源于：360壁纸与必应壁纸\n\n今日诗词来源于：https://www.jinrishici.com/");
+    </script>
+    <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?9e295359bc850c4c0291f51d1b5d6887";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();</script>
+</body>
+</html>
