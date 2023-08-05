@@ -4,6 +4,8 @@
 
 <img width="1499" alt="image" src="https://github.com/asir3q/soso/assets/64707090/d90a76d1-9d1f-420a-b0ad-66cf14e099d4">
 <img width="1500" alt="image" src="https://github.com/asir3q/soso/assets/64707090/21ded86f-200e-4008-b046-605239143871">
+<img width="1501" alt="image" src="https://github.com/asir3q/soso/assets/64707090/3e725999-7220-428e-a50e-060949c21be3">
+
 <img width="1499" alt="image" src="https://github.com/asir3q/soso/assets/64707090/d7e9d5c9-1c1d-465a-a989-8ff3d4e3bf17">
 <img width="1498" alt="image" src="https://github.com/asir3q/soso/assets/64707090/4b0490c7-592f-4d5d-a2fa-90c998b9ed07">
 <img width="1500" alt="image" src="https://github.com/asir3q/soso/assets/64707090/0eaa98ef-7272-4951-9097-981bb32bdfd6">
