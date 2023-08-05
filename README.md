@@ -1,7 +1,12 @@
-<img width="1521" alt="截屏2023-03-02 19 30 40" src="https://user-images.githubusercontent.com/64707090/222416698-7074e9b9-2e5f-46d9-8425-14a795736242.png">
+<img width="1548" alt="截屏2023-08-06 00 11 06" src="https://github.com/asir3q/soso/assets/64707090/9cce296f-b11d-4435-98ce-aeb2219935f0">
 
+自动跟随系统明亮/暗黑模式、支持切换搜索引擎、支持聚合搜索。
 
-https://user-images.githubusercontent.com/64707090/222420628-1ab8bdff-b931-4b21-92d4-47e8b8ad218f.mov
+<img width="1499" alt="image" src="https://github.com/asir3q/soso/assets/64707090/d90a76d1-9d1f-420a-b0ad-66cf14e099d4">
+<img width="1500" alt="image" src="https://github.com/asir3q/soso/assets/64707090/21ded86f-200e-4008-b046-605239143871">
+<img width="1499" alt="image" src="https://github.com/asir3q/soso/assets/64707090/d7e9d5c9-1c1d-465a-a989-8ff3d4e3bf17">
+<img width="1498" alt="image" src="https://github.com/asir3q/soso/assets/64707090/4b0490c7-592f-4d5d-a2fa-90c998b9ed07">
+<img width="1500" alt="image" src="https://github.com/asir3q/soso/assets/64707090/0eaa98ef-7272-4951-9097-981bb32bdfd6">
 
 ---
 
