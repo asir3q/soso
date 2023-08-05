@@ -10,24 +10,6 @@ https://user-images.githubusercontent.com/64707090/222420628-1ab8bdff-b931-4b21-
 ### 线上访问链接：https://so.yumus.cn/
 博客链接：https://www.yumus.cn/
 
-1. 框框共支持12个站点的搜索切换，默认使用百度搜索，如你切换过搜索引擎，再次打开或刷新页面框框会自动为你使用最近一次的设置（P.S.:清理浏览器缓存将恢复默认）。
-2. 如你需要修改默认搜索可自行设置参数，参数与搜索引擎对应关系如下，可直接复制完整链接使用。
-
-|网站|参数|完整链接
-|--|--|--|
-百度|engine=baidu|https://so.yumus.cn/?engine=baidu|
-必应|engine=bing|https://so.yumus.cn/?engine=bing|
-谷歌|engine=google|https://so.yumus.cn/?engine=google|
-搜狗|engine=sogou|https://so.yumus.cn/?engine=sogou|
-微信|engine=wechat|https://so.yumus.cn/?engine=wechat|
-B站|engine=bilibili|https://so.yumus.cn/?engine=bilibili|
-知乎|engine=zhihu|https://so.yumus.cn/?engine=zhihu|
-优惠券|engine=quan|https://so.yumus.cn/?engine=quan|
-360|engine=360|https://so.yumus.cn/?engine=360|
-douban|engine=douban|https://so.yumus.cn/?engine=douban|
-GitHub|engine=github|https://so.yumus.cn/?engine=github|
-茶杯狐|engine=chabeihu|https://so.yumus.cn/?engine=chabeihu|
-
 ---
 ### 帮助
 
