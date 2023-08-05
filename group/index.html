@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noarchive" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta name="renderer" content="webkit" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="author" content="九凌少子&语幕" />
+    <meta name='revised' content='20230725' />
+    <meta name="format-detection" content="address=no" />
+    <title>聚合搜索_框框主页</title>
+    <script>
+        var siteweb = window.location.search,
+        searchtext = siteweb.substring(siteweb.indexOf("=") + 1, siteweb.length),
+        cleartext = decodeURIComponent(searchtext).replaceAll("+", " ");
+        if (!(searchtext == "" || searchtext == null || searchtext == undefined)) {document.title = cleartext + "_框框主页";}
+    </script>
+    <meta name='keywords' content='框框主页,聚合搜索,搜索引擎聚合,搜索引擎聚合版,简单的浏览器主页,简洁的浏览器主页,一个框搜索,集合多个搜索引擎的浏览器主页,专注搜索,高效搜索,干净的浏览器主页'/> 
+    <meta name='description' content='框框主页聚合搜索，无须在多个页面切换即可在多个搜索引擎中完成搜索，快把框框设置为你的浏览器主页，让愉快上网从框框开始。'/>
+    <link rel="shortcut icon" href="../style/img/kuang.svg">
+    <link rel="stylesheet" href="../style/css/group.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+</head>
+<body>
+    <header><ul class="engine"><li class="searchSwitch"></li><li class="bing"></li><li class="sogou"></li><li class="wechat"></li><li class="qihu"></li><li class="fsou"></li><li class="quan"></li><li class="chabeihu"></li><li class="bilibili"></li><li class="pexels"></li><li class="baidu"></li><li class="google"></li><li class="yandex"></li><li class="duckgo"></li><li class="zhihu"></li></ul></header>
+    <div class="so">
+        <form method="get" class="form" >
+            <input type="text" class="field" id="search-text" style="outline:0" maxlength="2048" placeholder="输入关键词进行搜索…" autofocus="autofocus" autocomplete="off" value="" name="wd">
+            <div class="delete" style="display:none;"></div>
+            <button type="submit" class="submit" id="submit" disabled="disabled"></button>
+            <script>
+                if (!(searchtext == "" || searchtext == null || searchtext == undefined)) {
+                    $("#search-text").val(cleartext);
+                    $(".delete").show();
+                    $("#submit").attr("disabled", false);
+                }
+            </script>
+            <ul id="Sugword" style="display:none;"></ul>
+        </form>
+        <span class="btnClose fillet"><svg t="1676822636760" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3874" width="200" height="200"><path d="M562.281173 510.800685l294.996664-293.466821c13.94971-13.878079 14.020318-36.367279 0.14224-50.316989-13.913894-13.984503-36.367279-14.020318-50.316989-0.14224L512.034792 460.377272 219.528855 166.982082c-13.842263-13.878079-36.367279-13.94971-50.316989-0.071631-13.913894 13.878079-13.948687 36.403095-0.071631 50.352805L461.576587 510.587837 166.721139 803.876604c-13.94971 13.878079-14.020318 36.367279-0.14224 50.316989 6.939039 6.974855 16.084327 10.497075 25.229614 10.497075 9.073656 0 18.148335-3.451612 25.087375-10.354835l294.926056-293.360398 295.17472 296.064996c6.939039 6.974855 16.048511 10.462283 25.193799 10.462283 9.109472 0 18.184151-3.487428 25.12319-10.390651 13.913894-13.878079 13.94971-36.367279 0.071631-50.316989L562.281173 510.800685z" fill="#272636" p-id="3875"></path></svg></span>
+    </div>
+    <div class="oforOn">
+        <div class="off"><svg t="1679133042553" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2893" width="200" height="200"><path d="M473.6 490.666667L789.333333 170.666667 853.333333 230.4l-260.266666 260.266667 260.266666 260.266666-64 59.733334-315.733333-320z m-302.933333 0L490.666667 170.666667l59.733333 59.733333-260.266667 260.266667 260.266667 260.266666-59.733333 59.733334L170.666667 490.666667z" fill="#444444" p-id="2894"></path></svg></div>
+        <div class="on" style="display:none"><svg t="1679133061077" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3848" width="200" height="200"><path d="M550.4 490.666667L230.4 170.666667 170.666667 230.4l260.266666 260.266667L170.666667 750.933333 230.4 810.666667l320-320z m298.666667 0L533.333333 170.666667 469.333333 230.4l260.266667 260.266667-260.266667 260.266666 59.733334 59.733334 320-320z" fill="#444444" p-id="3849"></path></svg></div>
+    </div>
+    <div style="height:100vh">
+        <iframe id="onEngine" src="" frameborder="0" marginwidth="0" marginheight="0" allowtransparency="true" style="background-color:#fff;width:100%;height:100%;display:block" ></iframe>
+        <script>
+            function keywordReminder() {
+                let keywords = $("#search-text").val();
+                if (keywords == "" || keywords == null || keywords == undefined) {
+                    $("#Sugword").hide();
+                    $(".delete").hide();
+                    $("#submit").attr("disabled", true);
+                    return;
+                }
+                $("#submit").attr("disabled", false);
+                $(".delete").show();
+                if (keywords != "0") {
+                    $.ajax({
+                        url: "https://suggestion.baidu.com/su?wd=" + keywords,
+                        dataType: "jsonp",
+                        jsonp: "cb",
+                        success: function (data) {
+                            $("#Sugword").empty().show();
+                            if (data.s == "") {
+                                $("#Sugword").empty();
+                                $("#Sugword").hide();
+                            }
+                            $.each(data.s, function (i, val) {
+                                $("#Sugword").append(`<li class="sug"data-id="${i + 1}">${val}</li>`);
+                            });
+                            $("#Sugword").attr("data-length", data.s["length"]);
+                        },
+                        error: function () {
+                            $("#Sugword").empty().show();
+                            $("#Sugword").hide();
+                        }
+                    });
+                } else {
+                    $("#Sugword").empty();
+                    $("#Sugword").hide();
+                }
+            }
+            $("#search-text").bind("input porpertychange", function () {
+                keywordReminder();
+            });
+            $("#search-text").focus(function () {
+                keywordReminder();
+            });
+            $(document).on("click", "#Sugword li", function () {
+                let word = $(this).text();
+                $("#search-text").val(word);
+                $("#Sugword").empty();
+                $("#Sugword").hide();
+                $(".submit").trigger("click");
+            });
+            $(document).on("click", ".delete", function () {
+                $("#search-text").val("");
+                $("#Sugword").hide();
+                $(".delete").hide();
+                $("#submit").attr("disabled", true);
+            });
+            $(document).mouseup(function (e) {
+                var con = $("#search-text");
+                if (!con.is(e.target) && con.has(e.target).length === 0) {
+                    $("#Sugword").hide();
+                }
+            });
+            var typing = false;
+            $("#search-text").on("compositionstart", () => {
+                typing = true;
+            });
+            $("#search-text").on("compositionend", () => {
+                typing = false;
+            });
+            $("#search-text").keydown(function (e) {
+                if (!typing && $("#Sugword").attr("data-length") != 0) {
+                    if ($.trim($(this).val()).length === 0) return;
+                    let id = $(".choose").attr("data-id");
+                    if (id === undefined) id = 0;
+                    switch (e.key) {
+                        case "ArrowUp":
+                            id--;
+                            break;
+                        case "ArrowDown":
+                            id++;
+                            break;
+                        default:
+                            return;
+                            break;
+                    }
+                    let length = $("#Sugword").attr("data-length");
+                    if (id > length) id = 1;
+                    if (id < 1) id = length;
+                    $("[data-id=" + id + "]")
+                    .addClass("choose")
+                    .siblings()
+                    .removeClass("choose");
+                    $("#search-text").val($("[data-id=" + id + "]").text());
+                }
+            });
+            function elemEngine(engName, iframeUrl) {
+                $(".selected").removeClass("selected");
+                $("." + engName).addClass("selected");
+                $("#onEngine").attr("src", iframeUrl);
+            }
+            function elembgEngine(engName, iframeUrl) {
+                $(".selected").removeClass("selected");
+                $("." + engName).addClass("selected");
+                window.open(iframeUrl);
+            }
+            function switEngine(nameEngine) {
+                if (!(searchtext == "" || searchtext == null || searchtext == undefined)) {
+                    switch (nameEngine) {
+                        case "baidu":
+                            elembgEngine("baidu", "https://www.baidu.com/s?wd=" + searchtext);
+                            break;
+                        case "google":
+                            elembgEngine("google", "https://www.google.com/search?q=" + searchtext);
+                            break;
+                        case "sogou":
+                            elemEngine("sogou", "https://www.sogou.com/web?query=" + searchtext);
+                            break;
+                        case "wechat":
+                            elemEngine("wechat","https://weixin.sogou.com/weixin?type=2&query=" + searchtext);
+                            break;
+                        case "fsou":
+                            elemEngine("fsou", "https://fsoufsou.com/search?q=" + searchtext);
+                            break;
+                        case "chabeihu":
+                            elemEngine("chabeihu", "https://cupfox.app/s/" + searchtext);
+                            break;
+                        case "bilibili":
+                            elemEngine("bilibili","https://search.bilibili.com/all?keyword=" + searchtext);
+                            break;
+                        case "pexels":
+                            elemEngine("pexels","https://www.pexels.com/zh-cn/search/" + searchtext + "/");
+                            break;
+                        case "yandex":
+                            elembgEngine("yandex", "https://yandex.com/search/?text=" + searchtext);
+                            break;
+                        case "zhihu":
+                            elembgEngine("zhihu","https://www.zhihu.com/search?q=" + searchtext + "&type=content");
+                            break;
+                        case "quan":
+                            elemEngine("quan","https://quan.yumus.cn/?r=/l&kw=" + searchtext + "&sort=0");
+                            break;
+                        case "duckgo":
+                            elembgEngine("duckgo", "https://duckduckgo.com/?q=" + searchtext);
+                            break;
+                        case "qihu":
+                            elemEngine("qihu", "https://www.so.com/s?q=" + searchtext);
+                            break;
+                        case "bing":
+                        default:
+                            elemEngine("bing", "https://cn.bing.com/search?q=" + searchtext);
+                            break;
+                    }
+                } else {
+                    switch (nameEngine) {
+                        case "baidu":
+                            elembgEngine("baidu", "https://www.baidu.com");
+                            break;
+                        case "google":
+                            elembgEngine("google", "https://www.google.com");
+                            break;
+                        case "sogou":
+                            elemEngine("sogou", "https://www.sogou.com");
+                            break;
+                        case "wechat":
+                            elemEngine("wechat", "https://weixin.sogou.com");
+                            break;
+                        case "fsou":
+                            elemEngine("fsou", "https://fsoufsou.com");
+                            break;
+                        case "chabeihu":
+                            elemEngine("chabeihu", "https://cupfox.app");
+                            break;
+                        case "bilibili":
+                            elemEngine("bilibili", "https://www.bilibili.com");
+                            break;
+                        case "pexels":
+                            elemEngine("pexels", "https://www.pexels.com");
+                            break;
+                        case "yandex":
+                            elembgEngine("yandex", "https://yandex.com");
+                            break;
+                        case "zhihu":
+                            elembgEngine("zhihu", "https://www.zhihu.com");
+                            break;
+                        case "quan":
+                            elemEngine("quan", "https://quan.yumus.cn");
+                            break;
+                        case "duckgo":
+                            elembgEngine("duckgo", "https://duckduckgo.com");
+                            break;
+                        case "qihu":
+                            elemEngine("qihu", "https://www.so.com");
+                            break;
+                        case "bing":
+                        default:
+                            elemEngine("bing", "https://cn.bing.com");
+                            break;
+                    }
+                }
+            }
+            switEngine("bing");
+            $(document).on("click", ".sogou", function () {
+                switEngine("sogou");
+            });
+            $(document).on("click", ".wechat", function () {
+                switEngine("wechat");
+            });
+            $(document).on("click", ".fsou", function () {
+                switEngine("fsou");
+            });
+            $(document).on("click", ".chabeihu", function () {
+                switEngine("chabeihu");
+            });
+            $(document).on("click", ".yandex", function () {
+                switEngine("yandex");
+            });
+            $(document).on("click", ".bilibili", function () {
+                switEngine("bilibili");
+            });
+            $(document).on("click", ".zhihu", function () {
+                switEngine("zhihu");
+            });
+            $(document).on("click", ".pexels", function () {
+                switEngine("pexels");
+            });
+            $(document).on("click", ".quan", function () {
+                switEngine("quan");
+            });
+            $(document).on("click", ".duckgo", function () {
+                switEngine("duckgo");
+            });
+            $(document).on("click", ".bing", function () {
+                switEngine("bing");
+            });
+            $(document).on("click", ".qihu", function () {
+                switEngine("qihu");
+            });
+            $(document).on("click", ".baidu", function () {
+                switEngine("baidu");
+            });
+            $(document).on("click", ".google", function () {
+                switEngine("google");
+            });
+            $(document).on("click", ".oforOn", function () {
+                $("header").addClass("orOff");
+                $(".oforOn").addClass("orOn");
+                $(".off").hide();
+                $(".on").show();
+            });
+            $(document).on("click", ".orOn", function () {
+                $("header").removeClass("orOff");
+                $(".oforOn").removeClass("orOn");
+                $(".off").show();
+                $(".on").hide();
+            });
+            $(document).on("click", ".searchSwitch", function () {
+                $(".so").addClass("soOn");
+            });
+            $(document).on("click", ".btnClose", function () {
+                $(".so").removeClass("soOn");
+            });
+        </script>
+    </div>
+    <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?9e295359bc850c4c0291f51d1b5d6887";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();</script>
+</body>
+</html>
