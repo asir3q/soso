@@ -1,0 +1,256 @@
+[
+    {
+        "status": 200,
+        "object": [
+            {
+                "category": "推荐",
+                "typemap": "",
+                "sitelist": [
+                    {
+                        "site": "https://weread.qq.com/",
+                        "img": "./style/img/weixindushu.png",
+                        "title": "微信读书"
+                    },
+                    {
+                        "site": "https://quan.yumus.cn/ ",
+                        "img": "./style/img/quan.svg",
+                        "title": "优惠券"
+                    },
+                    {
+                        "site": "https://so.yumus.cn/tool/qrcode.html ",
+                        "img": "./style/img/tool-qrcode.svg",
+                        "title": "生成二维码"
+                    }
+                    ,{
+                        "site": "https://so.yumus.cn/tool/family.html ",
+                        "img": "./style/img/tool-family.svg",
+                        "title": "家庭称谓计算器"
+                    }
+                    ,{
+                        "site": "https://so.yumus.cn/tool/password.html ",
+                        "img": "./style/img/tool-password.svg",
+                        "title": "随机密码"
+                    },
+                    {
+                        "site": "https://www.yumus.cn/ ",
+                        "img": "./style/img/favicon_300.jpg",
+                        "title": "语幕"
+                    },
+                    {
+                        "site": "https://www.mrbaogao.com/",
+                        "img": "./style/img/mrbg.jpg",
+                        "title": "每日报告"
+                    },
+                    {
+                        "site": "https://cli.im/",
+                        "img": "./style/img/caoliao.jpeg",
+                        "title": "草料二维码"
+                    },
+                    {
+                        "site": "https://www.iconfont.cn/",
+                        "img": "./style/img/iconfont.svg",
+                        "title": "iconfont"
+                    },
+                    {
+                        "site": "https://tool.browser.qq.com/",
+                        "img": "./style/img/bxm.png",
+                        "title": "帮小忙"
+                    },
+                    {
+                        "site": "https://www.cikeee.com/",
+                        "img": "./style/img/cikeee.ico",
+                        "title": "此刻电影"
+                    },
+                    {
+                        "site": "https://cupfox.app/",
+                        "img": "./style/img/chabeihu.svg",
+                        "title": "茶杯狐"
+                    },
+                    {
+                        "site": "https://www.douban.com/",
+                        "img": "./style/img/douban.svg",
+                        "title": "豆瓣"
+                    },
+                    {
+                        "site": "https://www.woshipm.com/",
+                        "img": "./style/img/rrpm.ico",
+                        "title": "人人PM"
+                    },
+                    {
+                        "site": "https://www.yunyingpai.com/",
+                        "img": "./style/img/yyp.jpg",
+                        "title": "运营派"
+                    },
+                    {
+                        "site": "https://huaban.com/",
+                        "img": "./style/img/huaban.svg",
+                        "title": "花瓣网"
+                    }
+                ]
+            },
+            {
+                "category": "视频",
+                "typemap": "",
+                "sitelist": [
+                    {
+                        "site": "https://www.bilibili.com/",
+                        "img": "./style/img/bilibili.svg",
+                        "title": "哔哩哔哩"
+                    },
+                    {
+                        "site": "https://www.iqiyi.com/",
+                        "img": "./style/img/iqiyi.png",
+                        "title": "爱奇艺"
+                    },
+                    {
+                        "site": "https://v.qq.com/",
+                        "img": "./style/img/vqq.svg",
+                        "title": "腾讯视频"
+                    },
+                    {
+                        "site": "https://www.youku.com/",
+                        "img": "./style/img/youku.svg",
+                        "title": "优酷"
+                    },
+                    {
+                        "site": "https://tv.cctv.com/live/index.shtml",
+                        "img": "./style/img/cctv.jpg",
+                        "title": "CCTV直播"
+                    },
+                    {
+                        "site": "https://www.acfun.cn/",
+                        "img": "./style/img/acfun.png",
+                        "title": "AcFUN"
+                    },
+                    {
+                        "site": "https://www.mgtv.com/",
+                        "img": "./style/img/mgtv.png",
+                        "title": "芒果TV"
+                    },
+                    {
+                        "site": "https://www.le.com/",
+                        "img": "./style/img/leshi.png",
+                        "title": "乐视视频"
+                    },
+                    {
+                        "site": "https://haokan.baidu.com/",
+                        "img": "./style/img/haokantv.ico",
+                        "title": "好看视频"
+                    },
+                    {
+                        "site": "https://www.miguvideo.com/",
+                        "img": "./style/img/miguvideo.ico",
+                        "title": "咪咕视频"
+                    },
+                    {
+                        "site": "https://www.huya.com/",
+                        "img": "./style/img/huya.png",
+                        "title": "虎牙"
+                    },
+                    {
+                        "site": "https://www.douyu.com/",
+                        "img": "./style/img/douyu.ico",
+                        "title": "斗鱼"
+                    },
+                    {
+                        "site": "https://www.youtube.com/",
+                        "img": "./style/img/youtube.png",
+                        "title": "YOUTUBE"
+                    },
+                    {
+                        "site": "https://tv.sohu.com/",
+                        "img": "./style/img/sohutv.png",
+                        "title": "搜狐视频"
+                    },
+                    {
+                        "site": "https://www.ixigua.com/",
+                        "img": "./style/img/xiguatv.ico",
+                        "title": "西瓜视频"
+                    },
+                    {
+                        "site": "https://www.douyin.com/",
+                        "img": "./style/img/dytv.ico",
+                        "title": "抖音"
+                    },
+                    {
+                        "site": "https://gm1tv.live/",
+                        "img": "./style/img/gm1tv.png",
+                        "title": "剧迷影视"
+                    },
+                    {
+                        "site": "https://www.wasu.cn/",
+                        "img": "./style/img/wasu.ico",
+                        "title": "华数TV"
+                    }
+                ]
+            },
+            {
+                "category": "邮箱",
+                "typemap": "",
+                "sitelist": [
+                    {
+                        "site": "https://mail.qq.com/",
+                        "img": "./style/img/qqmail.png",
+                        "title": "QQ邮箱"
+                    },
+                    {
+                        "site": "https://mail.163.com/",
+                        "img": "./style/img/wy.ico",
+                        "title": "网易邮箱"
+                    },
+                    {
+                        "site": "https://qiye.aliyun.com/",
+                        "img": "./style/img/alimail.ico",
+                        "title": "阿里邮箱"
+                    },
+                    {
+                        "site": "https://mail.google.com/",
+                        "img": "./style/img/gmail.ico",
+                        "title": "谷歌邮箱"
+                    },
+                    {
+                        "site": "https://mail.sina.com.cn/",
+                        "img": "./style/img/xlmail.ico",
+                        "title": "新浪邮箱"
+                    },
+                    {
+                        "site": "https://exmail.qq.com/login",
+                        "img": "./style/img/exmail.ico",
+                        "title": "腾讯企业邮"
+                    }
+                ]
+            },
+            {
+                "category": "音乐",
+                "typemap": "",
+                "sitelist": [
+                    {
+                        "site": "https://y.qq.com/",
+                        "img": "./style/img/qqmusic.ico",
+                        "title": "QQ音乐"
+                    },
+                    {
+                        "site": "https://music.163.com/",
+                        "img": "./style/img/wyymusic.png",
+                        "title": "网易云音乐"
+                    },
+                    {
+                        "site": "https://www.kugou.com/",
+                        "img": "./style/img/kugou.ico",
+                        "title": "酷狗音乐"
+                    },
+                    {
+                        "site": "http://www.kuwo.cn/",
+                        "img": "./style/img/kuwo.ico",
+                        "title": "酷我音乐"
+                    },
+                    {
+                        "site": "https://music.douban.com/",
+                        "img": "./style/img/dbmusic.ico",
+                        "title": "豆瓣音乐"
+                    }
+                ]
+            }
+        ]
+    }
+]
