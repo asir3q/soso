@@ -1,0 +1,38 @@
+<html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="applicable-device" content="pc,mobile">
+<meta name="HandheldFriendly" content="true" />
+<title>页面加载中...</title>
+<script>
+let siteweb=window.location.search,
+key=siteweb.substring(1,siteweb.indexOf("=")),
+value=siteweb.substring(siteweb.indexOf("=")+1,siteweb.length);
+switch (key) {
+  case 'weixin':
+    target = 'https://weixin.sogou.com/weixin?type=2&query='+value;
+    break;
+  case 'yhq':
+    target = 'https://quan.yumus.cn/?r=/l&kw='+value+'&sort=0';
+    break;
+  case 'cbh':
+    target = 'https://cupfox.app/s/'+value;
+    break;
+  case 'pex':
+    target = 'https://www.pexels.com/zh-cn/search/'+value+'/';
+    break;
+  default:
+    break;
+}
+location.href = target;
+</script>
+</head>
+<body>
+</body>
+</html>
